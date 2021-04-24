@@ -1,0 +1,27 @@
+name: publishing
+
+on: 
+    push:
+        branches: [master]
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                node-version: 14.x
+            - name: setup
+              run: |
+                echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
+                npm install yarn -g
+                npm install can-npm-publish -g
+                yarn
+            - name: publish
+              run: | 
+                can-npm-publish || err=$? 
+                if [ ! "$err" ] ; then
+                    yarn test && yarn build && npm publish && echo "::set-output name=result::released"
+                else
+                    echo "::set-output name=result::skipped"
+                fi
