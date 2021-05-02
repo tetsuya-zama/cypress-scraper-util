@@ -1,11 +1,17 @@
 {
-  "name": "@tetsuya-zama/cypress-scraper-util",
-  "version": "0.1.0",
+  "name": "cypress-scraper-util",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "author": "Tetsuya Zama<tetsuya.zama@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tetsuya-zama/cypress-scraper-util.git"
+  },
+  "homepage": "https://github.com/tetsuya-zama/cypress-scraper-util",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^14.14.41",
