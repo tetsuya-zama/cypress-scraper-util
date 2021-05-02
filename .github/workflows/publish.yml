@@ -13,7 +13,7 @@ jobs:
                 node-version: 14.x
             - name: setup
               run: |
-                echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> ~/.npmrc
+                echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_ACCESS_TOKEN }}" >> ~/.npmrc
                 npm install yarn -g
                 npm install can-npm-publish -g
                 yarn
